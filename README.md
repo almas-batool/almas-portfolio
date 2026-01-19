@@ -1,16 +1,34 @@
-# React + Vite
+# Almas Batool – Portfolio Website 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains my personal portfolio website built to showcase my
+projects, skills, and learning journey in **Software Engineering, AI, and Cloud**.
 
-Currently, two official plugins are available:
+## 🔹 Live Website
+🌐 https://almas-portfolio.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔹 Tech Stack
+- **Frontend:** React, Tailwind CSS
+- **Animations:** Framer Motion
+- **Routing:** React Router
+- **Version Control:** Git & GitHub
+- **Deployment:** Vercel
 
-## React Compiler
+## 🔹 Key Features
+- Mobile-first responsive design
+- Scroll-based and page transition animations
+- Dynamic project pages
+- Resume download functionality
+- SEO optimized
+- Contact form with email support
+- CI/CD deployment using GitHub + Vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🔹 Projects Included
+- Symmetric Key Encryption
+- AI Based Career Advisor System
+- Smart Agriculture System
+- Disciplinary Hike
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔹 How to Run Locally
+```bash
+npm install
+npm run dev
