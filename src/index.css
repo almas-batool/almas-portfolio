@@ -2,10 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-dark text-white font-sans;
-}
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  @apply bg-dark text-white antialiased;
+}
+
+/* Typography rhythm */
+h1, h2, h3 {
+  @apply tracking-tight;
+}
+
+p {
+  @apply text-secondary leading-relaxed;
+}
+
+/* Section spacing consistency */
+section {
+  @apply py-20 sm:py-24;
+}
+
+/* Card style */
+.card {
+  @apply bg-card border border-white/10 rounded-xl;
+}
+
+/* Mobile safety */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent horizontal scroll */
+* {
+  max-width: 100%;
+}

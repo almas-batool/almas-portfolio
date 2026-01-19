@@ -1,60 +1,56 @@
-import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
+import ScrollReveal from "./ScrollReveal"
 import { projects } from "../data/projects"
 
 export default function Projects() {
+  if (!projects || projects.length === 0) return null
+
   return (
-    <section id="projects" className="py-24 bg-dark">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="projects">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
-        {/* Section Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl font-bold mb-12"
-        >
-          Projects
-        </motion.h2>
+        <ScrollReveal>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-10">
+            Projects
+          </h2>
+        </ScrollReveal>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid gap-6 sm:grid-cols-2">
           {projects.map((project, index) => (
-            <Link
-              key={project.slug}
-              to={`/projects/${project.slug}`}
-            >
+            <ScrollReveal key={project.slug} delay={index * 0.05}>
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="border border-white/10 rounded-xl p-6 cursor-pointer hover:border-primary transition"
+                whileTap={{ scale: 0.97 }}
+                className="card p-6 hover:border-primary transition-colors"
               >
-                {/* Project Title */}
-                <h3 className="text-xl font-semibold text-primary mb-3">
-                  {project.title}
-                </h3>
+                <Link to={`/projects/${project.slug}`}>
+                  <h3 className="text-xl font-semibold text-primary">
+                    {project.title}
+                  </h3>
+                </Link>
 
-                {/* Project Description */}
-                <p className="text-secondary mb-4">
-                  {project.description}
+                <p className="mt-3 text-sm">
+                  {project.shortDescription}
                 </p>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 text-sm">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 border border-white/10 rounded-md"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <div className="mt-5 flex gap-4 text-sm">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    className="underline"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    className="underline"
+                  >
+                    Live
+                  </a>
                 </div>
               </motion.div>
-            </Link>
+            </ScrollReveal>
           ))}
         </div>
 

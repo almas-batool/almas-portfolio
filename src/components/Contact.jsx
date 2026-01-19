@@ -1,55 +1,78 @@
-import { motion } from "framer-motion"
+import { useRef } from "react"
+import emailjs from "@emailjs/browser"
+import ScrollReveal from "./ScrollReveal"
 
 export default function Contact() {
+  const form = useRef()
+
+  const sendEmail = (e) => {
+    e.preventDefault()
+
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      form.current,
+      "YOUR_PUBLIC_KEY"
+    )
+    .then(
+      () => {
+        alert("Message sent successfully!")
+        form.current.reset()
+      },
+      () => {
+        alert("Failed to send message. Please try again.")
+      }
+    )
+  }
+
   return (
-    <section id="contact" className="py-24 bg-dark">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section id="contact" className="py-24">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl font-bold mb-6"
-        >
-          Contact Me
-        </motion.h2>
+        <ScrollReveal>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Contact Me
+          </h2>
+        </ScrollReveal>
 
-        <p className="text-secondary mb-10">
-          Feel free to reach out for internships, projects, or collaboration.
-        </p>
-
-        <form className="space-y-6">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full p-3 bg-transparent border border-white/10 rounded-lg"
-          />
-
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="w-full p-3 bg-transparent border border-white/10 rounded-lg"
-          />
-
-          <textarea
-            rows="5"
-            placeholder="Your Message"
-            className="w-full p-3 bg-transparent border border-white/10 rounded-lg"
-          />
-
-          <button
-            type="submit"
-            className="bg-primary text-dark px-6 py-3 rounded-lg hover:opacity-90 transition"
+        <ScrollReveal>
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="space-y-6"
           >
-            Send Message
-          </button>
-        </form>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              className="w-full p-3 rounded-lg bg-transparent border border-white/10"
+            />
 
-        <div className="mt-8 text-secondary">
-          <p>Email: <span className="text-primary">almas.shaik.108@gmail.com</span></p>
-          <p>Location: <span className="text-primary">Bidar, Karnataka</span></p>
-        </div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              className="w-full p-3 rounded-lg bg-transparent border border-white/10"
+            />
+
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Your Message"
+              required
+              className="w-full p-3 rounded-lg bg-transparent border border-white/10"
+            />
+
+            <button
+              type="submit"
+              className="w-full bg-primary text-dark py-3 rounded-lg hover:opacity-90 transition"
+            >
+              Send Message
+            </button>
+          </form>
+        </ScrollReveal>
 
       </div>
     </section>
