@@ -34,7 +34,15 @@ export default function Hero() {
           className="mt-10 flex gap-4"
         >
           <button className="bg-primary text-dark px-6 py-3 rounded-lg font-medium hover:opacity-90">
-            View Projects
+            <div className="mt-10 flex gap-4 flex-wrap">
+               <a
+                href="#projects"
+                className="bg-primary text-dark px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
+               >
+               View Projects
+              </a>
+              </div>
+
           </button>
 
           <button className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-dark">
