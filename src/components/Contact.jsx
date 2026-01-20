@@ -48,7 +48,7 @@ export default function Contact() {
           <ScrollReveal delay={0.2}>
             <motion.a
               {...cardMotion}
-              href="https://www.linkedin.com/in/almas-batool-aa518925"
+              href="https://www.linkedin.com/in/almas-batool-aa5189251"
               target="_blank"
               rel="noreferrer"
               className="border border-white/10 rounded-xl p-6 block"
