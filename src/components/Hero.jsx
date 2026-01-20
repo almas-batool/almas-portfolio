@@ -2,58 +2,82 @@ import { motion } from "framer-motion"
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 grid gap-14 md:grid-cols-2 items-center">
+    <section
+      id="home"
+      className="min-h-screen flex items-center pt-24 relative overflow-hidden"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 grid gap-16 md:grid-cols-2 items-center relative z-10">
 
-        {/* Text */}
+        {/* LEFT: TEXT */}
         <div>
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold"
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
           >
             Hi, I’m{" "}
-            <span className="text-primary">Almas Batool</span>
+            <span className="text-primary relative">
+              Almas Batool
+              <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-primary/40" />
+            </span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="mt-5 max-w-xl text-sm sm:text-base"
+            transition={{ delay: 0.15, duration: 0.6 }}
+            className="mt-6 max-w-xl text-secondary text-sm sm:text-base"
           >
             Software Engineer · Full-Stack Developer · Data & AI Engineer  
             <br />
             Building secure, intelligent, and data-driven applications.
           </motion.p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <a
+          {/* CTA BUTTONS */}
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="mt-10 flex flex-col sm:flex-row gap-4"
+          >
+            <motion.a
               href="#projects"
-              className="bg-primary text-dark px-6 py-3 rounded-lg text-center font-medium"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
+              className="bg-primary text-dark px-7 py-3 rounded-lg font-medium text-center shadow-lg shadow-primary/20"
             >
               View Projects
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
               href="/Almas_Batool_Resume.pdf"
               download
-              className="border border-primary text-primary px-6 py-3 rounded-lg text-center font-medium"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
+              className="border border-primary/70 text-primary px-7 py-3 rounded-lg font-medium text-center hover:bg-primary/10 transition"
             >
               Download Resume
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
 
-        {/* Image */}
-        <div className="flex justify-center">
+        {/* RIGHT: IMAGE */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.25, duration: 0.6 }}
+          className="flex justify-center relative"
+        >
+          {/* Glow */}
+          <div className="absolute w-72 h-72 rounded-full bg-primary/20 blur-3xl" />
+
           <img
             src="/profile.jpg"
             alt="Almas Batool"
-            className="w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-primary"
+            className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-primary/80"
           />
-        </div>
+        </motion.div>
 
       </div>
     </section>

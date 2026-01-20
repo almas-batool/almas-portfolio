@@ -2,40 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* IMPORTANT: body must be transparent */
 body {
-  @apply bg-dark text-white antialiased;
+  @apply text-white antialiased;
+  background: transparent;
 }
 
-/* Typography rhythm */
-h1, h2, h3 {
-  @apply tracking-tight;
+/* Root wrapper background */
+#root {
+  
+  background-color: #0b1220;
+  position: relative;
+  z-index: 1;
 }
 
-p {
-  @apply text-secondary leading-relaxed;
+#root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(56,189,248,0.12),
+    transparent 50%
+  );
+  z-index: -1;
 }
 
-/* Section spacing consistency */
+
+/* Sections must NOT override background */
 section {
-  @apply py-20 sm:py-24;
+  background: transparent;
 }
 
-/* Card style */
-.card {
-  @apply bg-card border border-white/10 rounded-xl;
-}
-
-/* Mobile safety */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Prevent horizontal scroll */
+/* Prevent overflow */
 * {
   max-width: 100%;
+}
+
+/* Smooth typography feel */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+/* Better tap feel on mobile */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth tap interactions */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Subtle hover polish */
+@media (hover: hover) {
+  a:hover {
+    opacity: 0.9;
+  }
 }
